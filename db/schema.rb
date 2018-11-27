@@ -10,25 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_23_174831) do
+ActiveRecord::Schema.define(version: 2018_11_27_152510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "episodes", force: :cascade do |t|
-    t.integer "season"
+    t.bigint "season_id"
     t.integer "episode_number"
     t.string "name"
+    t.bigint "series_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["season_id"], name: "index_episodes_on_season_id"
+    t.index ["series_id"], name: "index_episodes_on_series_id"
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.bigint "series_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["series_id"], name: "index_seasons_on_series_id"
   end
 
   create_table "series", force: :cascade do |t|
     t.string "name"
-    t.bigint "episodes_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["episodes_id"], name: "index_series_on_episodes_id"
   end
 
 end
