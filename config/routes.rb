@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  apipie
   resources :series, only: %i(index show) do
     resources :seasons, only: :index
   end
