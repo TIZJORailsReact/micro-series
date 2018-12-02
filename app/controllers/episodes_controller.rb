@@ -4,6 +4,7 @@ class EpisodesController < ApplicationController
     property :id, Integer, desc: "Episode id"
     property :name, String, :desc => "Episode title"
     property :episode_number, Integer, :desc => "Episode number"
+    property :link, String, :desc => "Episode link"
   end
 
   api :GET, "seasons/:season_id/episodes/", "Get all episodes"
