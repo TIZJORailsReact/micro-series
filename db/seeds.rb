@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 series = Series.create!(name: "Doctor Who")
 season = Season.create!(series: series, name: "First season", number: 1)
-episode_1 = Episode.create!(season: season, episode_number: 1, name: "Introduction", series: series)
+episode_1 = Episode.create!(season: season, episode_number: 1, name: "Introduction", series: series, link: 'lRt54xjIq7w')
