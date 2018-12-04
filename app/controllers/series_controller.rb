@@ -5,13 +5,15 @@ class SeriesController < ApplicationController
   end
 
   api :GET, "series/", "Get all series"
+  formats ['json']
   returns array_of: :series, :code => 200, :desc => "All series"
   def index
     @series = Series.all
   end
 
   api :GET, "series/:id", "Get specific series"
-  param :id, Integer, desc: "Series id", required: true
+  formats ['json']
+  param :id, String, desc: "Series id", required: true
   returns :series, :code => 200, :desc => "Specific series"
   def show
     @series = Series.find(params[:id])
