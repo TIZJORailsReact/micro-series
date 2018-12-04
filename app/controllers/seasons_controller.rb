@@ -6,14 +6,14 @@ class SeasonsController < ApplicationController
   end
 
   api :GET, "series/:series_id/seasons/", "Get all seasons"
-  param :series_id, Integer, desc: "Series id", required: true
+  param :series_id, String, desc: "Series id", required: true
   returns :array_of => :season, :code => 200, :desc => "All seasons"
   def index
     @seasons = Series.find(params[:series_id]).seasons
   end
 
   api :GET, "seasons/:id", "Get specific season"
-  param :id, Integer, desc: "Season id", required: true
+  param :id, String, desc: "Season id", required: true
   returns :season, :code => 200, :desc => "Specific season"
   def show
     @season = Season.find(params[:id])
