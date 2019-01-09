@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-series = Series.create!(name: "Doctor Who")
+Series.destroy_all
+series = Series.create!(name: "Doctor Who", genre: :action)
 season = Season.create!(series: series, name: "First season", number: 1)
 Episode.create!(season: season, episode_number: 1, name: "Introduction", series: series, link: 'FEc-OQ_oqDk')
 Episode.create!(season: season, episode_number: 2, name: "Episode 2", series: series, link: 'XCt6f1Ttmy4')
@@ -15,7 +16,7 @@ Episode.create!(season: season_2, episode_number: 1, name: "Introduction", serie
 Episode.create!(season: season_2, episode_number: 2, name: "Episode 2", series: series, link: 'yJqsPBWbtjk')
 Episode.create!(season: season_2, episode_number: 3, name: "Episode 3", series: series, link: 'BJP9o4BEziI')
 
-series_1 = Series.create!(name: "Game of thrones")
+series_1 = Series.create!(name: "Game of thrones", genre: :action)
 season_1 = Season.create!(series: series_1, name: "First season", number: 1)
 Episode.create!(season: season_1, episode_number: 1, name: "Introduction", series: series, link: 'BpJYNVhGf1s')
 Episode.create!(season: season_1, episode_number: 2, name: "Episode 2", series: series, link: 'gcTkNV5Vg1E')
