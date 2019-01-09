@@ -1,3 +1,4 @@
 json.extract! series,
               :id,
-              :name
+              :name,
+              :genre
