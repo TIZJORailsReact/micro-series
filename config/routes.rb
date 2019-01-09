@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resource :likes, only: :destroy, :defaults => {:format => 'json'}
   end
 
-  get 'favorites', to: 'series#favorites', :defaults => {:format => 'json'}
+  get 'favorites/series', to: 'series#favorites', :defaults => {:format => 'json'}
 
   resources :seasons, only: :show, :defaults => { :format => 'json' } do
     resources :episodes, only: :index, :defaults => { :format => 'json' }
