@@ -14,13 +14,20 @@ class SeriesController < ApplicationController
     property :name, String, :desc => "Series title"
   end
 
-  api :GET, "series/", "Get all series"
+  api :GET, "series/", "Get all series and 5 random recommendations"
+  formats ['json']
+  returns array_of: :series, :code => 200, :desc => "All series"
+
+  api :GET, "series?login=login", "Get all series and 5 recommendations
+depended on user likes"
   formats ['json']
   returns array_of: :series, :code => 200, :desc => "All series"
   def index
     @series = Series.all
   end
 
+  api :GET, "favorites/series?login=login", "Get series liked by user"
+  returns :array_of => :series, :code => 200, :desc => "Series liked by user"
   def favorites
     @series = Series.liked(params[:login])
   end
