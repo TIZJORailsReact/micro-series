@@ -6,7 +6,7 @@ class LikesController < ApplicationController
   end
 
   api :POST, 'series/:series_id/likes/', "Create like"
-  param :series_id, Integer, required: true
+  param :series_id, String, required: true
   param_group :like
   returns :code => 200, :desc => "Successfully create like"
   returns :code => 422, :desc => 'Cannot save like'
@@ -25,7 +25,7 @@ class LikesController < ApplicationController
   end
 
   api :DELETE, 'series/:series_id/like', "Delete like"
-  param :series_id, Integer, required: true
+  param :series_id, String, required: true
   returns :code => 200, :desc => "Successfully deletes like"
   returns :code => 404, :desc => "Like not found"
   returns :code => 422, :desc => 'Cannot delete like'
