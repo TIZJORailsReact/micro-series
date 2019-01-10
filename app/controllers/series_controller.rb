@@ -21,6 +21,8 @@ class SeriesController < ApplicationController
     @series = Series.all
   end
 
+  api :GET, "favorites/series?login=login", "Get series liked by user"
+  returns :array_of => :series, :code => 200, :desc => "Series liked by user"
   def favorites
     @series = Series.liked(params[:login])
   end
