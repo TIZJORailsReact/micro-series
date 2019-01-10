@@ -27,7 +27,7 @@ class Series < ApplicationRecord
         genres << series.genre
       end
       genres.each do |genre|
-        series = where(genre: genre)
+        series = where(genre: genre).to_a
         recommended << series.delete_if { |x| recommended.include?(x) || liked.include?(x) }.sample
       end
     end
