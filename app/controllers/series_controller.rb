@@ -24,7 +24,7 @@ depended on user likes"
   returns array_of: :series, :code => 200, :desc => "All series"
 
   api :GET, "series?gender_scope=true", "Get all series in given gender scope
-and 5 recommendations depended on user likes"
+and 5 random recommendations"
   formats ['json']
   returns array_of: :series, :code => 200, :desc => "All series in given gender"
   def index
